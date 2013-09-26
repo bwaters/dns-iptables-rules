@@ -8,6 +8,9 @@ IPCHAIN=dnsfilter
 #Action to take when match is made DROP | REJECT | LOG | <CHAINNAME>
 TARGET=DROP
 
+#Update path so it works as cronjob
+PATH="$PATH:/sbin/"
+
 #see if chain exists, if not initialize
 if [ `iptables -L $IPCHAIN | wc -l` -lt 1 ]; then
     echo "adding chain $IPCHAIN"
